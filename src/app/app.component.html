@@ -6,34 +6,34 @@
 <div class="content" role="main">
 
   <div>
-    <mat-slide-toggle>Dynamique</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isDynamic">Dynamique</mat-slide-toggle>
   </div>
   <br>
   <div>
     <span>Distance C/VS (Kms) : </span>
     <mat-form-field appearance="outline">
-      <input matInput placeholder="0">
+      <input [(ngModel)]="distanceCVS" matInput placeholder="0">
     </mat-form-field>
   </div>
 
   <div>
     <span>Vitesse C (Km/h) : </span>
     <mat-form-field appearance="outline">
-      <input matInput placeholder="0">
+      <input [(ngModel)]="vitesseC" matInput placeholder="0">
     </mat-form-field>
   </div>
 
-  <div>
+  <div [hidden]="!isDynamic">
     <span>Vitesse VS (Km/h) : </span>
     <mat-form-field appearance="outline">
-      <input matInput placeholder="0">
+      <input [(ngModel)]="vitesseVS" matInput placeholder="0">
     </mat-form-field>
   </div>
 
-  <button mat-stroked-button color="primary">Calcul</button>
+  <button mat-stroked-button color="primary" (click)="onClick()">Calcul</button>
 
   <br>
   <br>
-  <span>Temps dépassement : X mn</span>
+    <span>Temps dépassement : {{resultMinutes}} mn {{resultSecondes}} s</span>
 
 </div>
